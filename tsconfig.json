@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "lib": ["esnext"],
+    "types": ["@cloudflare/workers-types"],
+    "rootDir": ".",
+    "baseUrl": ".",
+    "newLine": "lf",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+  }
+}

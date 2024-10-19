@@ -1,0 +1,25 @@
+{
+  "name": "hono-worker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "bun src/bun.ts",
+    "db": "sst shell drizzle-kit",
+    "db:studio": "sst shell drizzle-kit studio"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@libsql/client": "^0.14.0",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.34.1",
+    "hono": "^4.6.5",
+    "sst": "3.2.19"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "4.20241011.0",
+    "drizzle-kit": "^0.25.0"
+  }
+}

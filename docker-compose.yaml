@@ -1,0 +1,5 @@
+services:
+  prod_db_connector:
+    build:
+      context: .
+      dockerfile: Turso.Dockerfile

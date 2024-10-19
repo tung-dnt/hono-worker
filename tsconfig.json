@@ -2,9 +2,11 @@
   "compilerOptions": {
     "lib": ["esnext"],
     "types": ["@cloudflare/workers-types"],
+    "typeRoots": ["@types", "./node_modules/@types"],
     "rootDir": ".",
     "baseUrl": ".",
     "newLine": "lf",
+    "esModuleInterop": true,
     "paths": {
       "@/*": [
         "src/*"

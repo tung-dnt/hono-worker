@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --poll --respawn --transpile-only --exit-child --no-notify --ignore-watch node_modules -r tsconfig-paths/register src/node.ts",
-    "start:live": "sst dev",
+    "start": "ts-node-dev --poll --respawn --transpile-only --exit-child --no-notify --ignore-watch node_modules -r dotenv/config -r tsconfig-paths/register src/node.ts",
+    "dev": "sst dev --stage dev",
     "deploy": "sst deploy --stage production",
     "db": "sst shell drizzle-kit",
     "db:studio": "sst shell drizzle-kit studio"
@@ -14,14 +14,17 @@
   "author": "tung-dnt",
   "license": "ISC",
   "dependencies": {
+    "@hono/zod-validator": "^0.4.1",
     "@libsql/client": "^0.14.0",
     "drizzle-orm": "^0.34.1",
-    "hono": "^4.6.5"
+    "hono": "^4.6.5",
+    "lodash": "^4.17.21",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "4.20241011.0",
     "@hono/node-server": "^1.13.2",
-    "@types/bun": "^1.1.11",
+    "@types/lodash": "^4.17.12",
     "dotenv": "^16.4.5",
     "drizzle-kit": "^0.25.0",
     "sst": "3.2.19",

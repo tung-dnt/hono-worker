@@ -8,7 +8,7 @@ const format =
     successCode = 200,
   ): Handler =>
   async (c) => {
-    const data = await controller(c)
+    const data = (await controller(c)) ?? null
     const response: ApiResponse = { status: 'success', data }
     return c.json(response, successCode as unknown)
   }

@@ -1,16 +1,16 @@
 import { Hono } from 'hono'
 import { logger } from 'hono/logger'
-import { compress } from 'hono/compress'
 import { timeout } from 'hono/timeout'
 
 import { ERROR_RESPONSE } from '@/constants/response'
 import appRouter from '@/routes'
+import { connectDb } from '@/middlewares/database'
 
 const app = new Hono()
 
 // Middlewares
+app.use(connectDb)
 app.use(logger())
-app.use(compress({ encoding: 'gzip' }))
 app.use('/api', timeout(3000))
 
 // Route handlers

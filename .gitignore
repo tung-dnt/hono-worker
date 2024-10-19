@@ -4,3 +4,4 @@
 bun.lockb
 .env
 node_modules
+pnpm-lock.yaml

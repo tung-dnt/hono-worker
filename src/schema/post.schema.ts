@@ -1,6 +1,6 @@
-import { sql } from 'drizzle-orm';
-import { integer, sqliteTable, text } from 'drizzle-orm/sqlite-core';
-import { Users } from './user.schema';
+import { sql } from 'drizzle-orm'
+import { integer, sqliteTable, text } from 'drizzle-orm/sqlite-core'
+import { Users } from './user.schema'
 
 export const Posts = sqliteTable('posts', {
   id: integer('id').primaryKey(),
@@ -12,8 +12,10 @@ export const Posts = sqliteTable('posts', {
   createdAt: text('created_at')
     .default(sql`(CURRENT_TIMESTAMP)`)
     .notNull(),
-  updateAt: integer('updated_at', { mode: 'timestamp' }).$onUpdate(() => new Date()),
-});
+  updateAt: integer('updated_at', { mode: 'timestamp' }).$onUpdate(
+    () => new Date(),
+  ),
+})
 
-export type InsertPost = typeof Posts.$inferInsert;
-export type SelectPost = typeof Posts.$inferSelect;
+export type InsertPost = typeof Posts.$inferInsert
+export type SelectPost = typeof Posts.$inferSelect

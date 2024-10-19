@@ -5,6 +5,6 @@ export type ResponseStatus =
   | 'async-success'
 export type ApiResponse<R = any, E = any> = {
   status: ResponseStatus
-  body?: R
+  data?: R
   errorMessage?: E
 }

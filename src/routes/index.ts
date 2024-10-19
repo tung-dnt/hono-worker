@@ -1,9 +1,8 @@
 import { Hono } from 'hono'
+import authRouter from './auth'
 
 const appRouter = new Hono()
 
-appRouter.get('/', (c) => {
-  return c.json(data)
-})
+appRouter.route('/auth', authRouter)
 
 export default appRouter

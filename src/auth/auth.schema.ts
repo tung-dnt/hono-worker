@@ -13,7 +13,7 @@ export const RegisterValidator = z
       .string()
       .min(6)
       .regex(
-        /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/,
+        /^(?=.*[A-Z])(?=.*\d)(?!.*\s).{6,}$/,
         'Password must contain at least 1 capital letter, 1 number, and no spaces',
       ),
     retypePassword: z.string(),

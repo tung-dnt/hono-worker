@@ -4,7 +4,7 @@ import { defineConfig } from 'drizzle-kit'
 config({ path: '.env' })
 export default defineConfig({
   strict: true,
-  schema: './src/schema',
+  schema: './src/shared/model',
   out: './migrations',
   dialect: 'turso',
   verbose: true,

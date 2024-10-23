@@ -2,9 +2,9 @@ import { Hono } from 'hono'
 import { logger } from 'hono/logger'
 import { timeout } from 'hono/timeout'
 
-import { ERROR_RESPONSE } from '@/constants/response'
-import appRouter from '@/routes'
-import { connectDb } from '@/middlewares/database'
+import { ERROR_RESPONSE } from '@constant/response'
+import appRouter from '@routes'
+import { connectDb } from '@middleware/database.middleware'
 
 const app = new Hono()
 

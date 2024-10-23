@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
     "lib": ["esnext"],
-    "types": ["@cloudflare/workers-types"],
+    // "types": ["@cloudflare/workers-types"],
+    "strict": true,
     "typeRoots": ["@types", "./node_modules/@types"],
+    "skipLibCheck": true,
     "rootDir": ".",
     "baseUrl": ".",
     "newLine": "lf",
     "esModuleInterop": true,
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    },
+      "@*": ["src/*"]
+    }
   }
 }

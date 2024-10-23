@@ -1,17 +1,8 @@
 import { Context, MiddlewareHandler, Next } from 'hono'
 import { verify } from 'hono/jwt'
-import config from '@/constants/config'
+import config from '@constant/config'
 import { getSignedCookie } from 'hono/cookie'
-import { DecodedUser } from '@/types/user'
-
-const isUserPermissionsMatched = (
-  userPermissions: string[],
-  requiredPermissions: string[],
-) => {
-  return requiredPermissions.every((requiredPermission) =>
-    userPermissions.includes(requiredPermission),
-  )
-}
+import { DecodedUser } from 'types/user'
 
 const auth =
   (...permissions: string[]): MiddlewareHandler =>
@@ -35,12 +26,12 @@ const auth =
       return c.json({ status: 'error', message: 'Unauthorized' }, 401)
     }
 
-    if (
-      permissions.length > 0 &&
-      !isUserPermissionsMatched(decodedUser.permissions, permissions)
-    ) {
-      return c.json({ status: 'error', message: 'Not Allowed' }, 403)
-    }
+    // if (
+    //   permissions.length > 0 &&
+    //   !isUserPermissionsMatched(decodedUser.permissions, permissions)
+    // ) {
+    //   return c.json({ status: 'error', message: 'Not Allowed' }, 403)
+    // }
 
     c.set('decodedUser', decodedUser)
     await next()

@@ -3,8 +3,8 @@ export type ResponseStatus =
   | 'success'
   | 'async-error'
   | 'async-success'
-export type ApiResponse<R = any, E = any> = {
+export type ApiResponse<R = any> = {
   status: ResponseStatus
   data?: R
-  errorMessage?: E
+  message?: string
 }

@@ -6,8 +6,10 @@
   "scripts": {
     "start": "ts-node-dev --poll --respawn --transpile-only --exit-child --no-notify --ignore-watch node_modules -r dotenv/config -r tsconfig-paths/register src/node.ts",
     "typecheck": "tsc --noEmit",
-    "dev": "sst dev --stage dev",
-    "prod": "sst deploy --stage production",
+    "run:dev": "sst dev --stage dev",
+    "run:prod": "sst dev --stage production",
+    "deploy:dev": "sst deploy --stage dev",
+    "deploy:prod": "sst deploy --stage production",
     "db": "sst shell drizzle-kit",
     "db:studio": "sst shell drizzle-kit studio"
   },

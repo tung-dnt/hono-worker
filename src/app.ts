@@ -3,9 +3,9 @@ import { logger } from 'hono/logger'
 import { timeout } from 'hono/timeout'
 import { getConnInfo } from 'hono/cloudflare-workers'
 
-import { ERROR_RESPONSE } from '@constant/response'
+import { ERROR_RESPONSE } from '$constant/response'
 import appRouter from '@routes'
-import { connectDb } from '@middleware/database.middleware'
+import { connectDb } from '$middleware/database.middleware'
 
 const app = new Hono()
 

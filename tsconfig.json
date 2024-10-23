@@ -10,7 +10,8 @@
     "newLine": "lf",
     "esModuleInterop": true,
     "paths": {
-      "@*": ["src/*"]
+      "@*": ["src/*"],
+      "$*": ["src/shared/*"]
     }
   }
 }

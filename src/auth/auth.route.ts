@@ -5,8 +5,8 @@ import omit from 'lodash/omit'
 import { zValidator as validate } from '@hono/zod-validator'
 
 import { ApiResponse } from 'types/response'
-import config from '@constant/config'
-import auth from '@middleware/auth.middleware'
+import config from '$constant/config'
+import auth from '$middleware/auth.middleware'
 import { getUserProfile } from '@user/user.service'
 
 import { deleteTokensFromCookie, setTokensToCookie } from './auth.service'

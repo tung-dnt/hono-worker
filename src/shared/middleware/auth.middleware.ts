@@ -1,6 +1,6 @@
 import { Context, MiddlewareHandler, Next } from 'hono'
 import { verify } from 'hono/jwt'
-import config from '@constant/config'
+import config from '$constant/config'
 import { getSignedCookie } from 'hono/cookie'
 import { DecodedUser } from 'types/user'
 

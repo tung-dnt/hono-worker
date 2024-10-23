@@ -3,8 +3,8 @@ import { sign, verify } from 'hono/jwt'
 import pick from 'lodash/pick'
 
 import { UserStatus } from 'types/auth'
-import config from '@constant/config'
-import { compare, generateSalt, hash } from '@helper/password.helper'
+import config from '$constant/config'
+import { compare, generateSalt, hash } from '$helper/password.helper'
 import {
   createUser,
   getUserProfile,

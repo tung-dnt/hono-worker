@@ -1,6 +1,6 @@
 import { eq, or } from 'drizzle-orm'
-import { $db } from '@middleware/database.middleware'
-import { User, user } from '@model/user.model'
+import { $db } from '$middleware/database.middleware'
+import { User, user } from '$model/user.model'
 import { ResourcePolicy } from 'types/auth'
 
 export const getUserProfile = async (identifier: number | string) => {

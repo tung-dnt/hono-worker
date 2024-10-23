@@ -1,6 +1,6 @@
 import { Context } from 'hono'
 import { deleteCookie, setSignedCookie } from 'hono/cookie'
-import config from '@constant/config'
+import config from '$constant/config'
 
 export const setTokensToCookie = (
   c: Context,

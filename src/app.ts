@@ -1,6 +1,7 @@
 import { Hono } from 'hono'
 import { logger } from 'hono/logger'
 import { timeout } from 'hono/timeout'
+import { getConnInfo } from 'hono/cloudflare-workers'
 
 import { ERROR_RESPONSE } from '@constant/response'
 import appRouter from '@routes'
@@ -14,7 +15,10 @@ app.use(logger())
 app.use('/api', timeout(3000))
 
 // Route handlers
-app.get('/', (c) => c.text('Hello Cloudflare Workers!'))
+app.get('/', (c) => {
+  const info = getConnInfo(c)
+  return c.text(`Hello ${info.remote.address}!`)
+})
 app.route('/api', appRouter)
 
 // Error handlers

@@ -10,7 +10,7 @@ import auth from '$middleware/auth.middleware'
 import { getUserProfile } from '@user/user.service'
 
 import { deleteTokensFromCookie, setTokensToCookie } from './auth.service'
-import { login, refreshToken } from './auth.controller'
+import { login, refreshToken, register } from './auth.controller'
 import { LoginValidator, RegisterValidator } from './auth.schema'
 
 const authRouter = new Hono()
@@ -48,6 +48,7 @@ authRouter
 
   .post('/login', validate('json', LoginValidator), async (c) => {
     const payload = c.req.valid('json')
+
     const [accessToken, refreshToken] = await login(payload)
     await setTokensToCookie(c, accessToken, refreshToken)
 
@@ -59,6 +60,9 @@ authRouter
 
   .post('/register', validate('json', RegisterValidator), async (c) => {
     const payload = c.req.valid('json')
+
+    const [accessToken, refreshToken] = await register(payload)
+    await setTokensToCookie(c, accessToken, refreshToken)
 
     return c.json<ApiResponse>({
       status: 'success',

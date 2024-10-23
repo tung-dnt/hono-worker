@@ -65,7 +65,16 @@ export const refreshToken = async (
   ])
 }
 
-export const register = async (payload: TRegisterValidator) => {
+/**
+ * Register a new user.
+ *
+ * @param {TRegisterValidator} payload - object contains email, password, and fullName
+ * @returns {Promise<[string, string]>} - array of two strings, the first is access token and the second is refresh token
+ * @throws {HTTPException} - when email is already exist
+ */
+export const register = async (
+  payload: TRegisterValidator,
+): Promise<[string, string]> => {
   const salt = generateSalt()
   const password = hash(payload.password, salt)
   const insertData = {
@@ -78,7 +87,10 @@ export const register = async (payload: TRegisterValidator) => {
   }
 
   const { id } = await createUser(insertData)
-  await updateResourcePolicy(id, {})
+  const registeredUser = await updateResourcePolicy(id, {})
 
-  return id
+  return Promise.all([
+    sign({ user: registeredUser }, config.token.signed_token_secret),
+    sign({ user: registeredUser }, config.token.signed_token_secret),
+  ])
 }

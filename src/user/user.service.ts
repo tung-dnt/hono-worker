@@ -30,5 +30,5 @@ export const updateResourcePolicy = async (
     .update(user)
     .set({ accessPolicy: resourcePolicy })
     .where(eq(user.id, id))
-    .returning({ id: user.id })
+    .returning({ id: user.id, accessPolicy: user.accessPolicy })
 }
